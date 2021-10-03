@@ -17,7 +17,12 @@ service name: `AWS Certificate Manager` (https://aws.amazon.com/certificate-mana
 Figure out and write down the price per month of storing 51TB on S3.
 
 Price: `1172 USD (for first 50 TB / Month costs 23usd and after 1TB cost 22usd)`
-
+Calculations : 1 TB = 1000 GB, 
+For first 50 TB, it costs 0.023 per GB i.e 1 TB cost 23 USD,
+ for first 50 TB = 23*50 = 1150 USD,
+       next 1TB = 22 * 1= 22USD 
+                  51 TB  = 1172 USD
+ 
 Total size of website: `Total Size: 494.9 KiB`
 (aws s3 ls s3://rajani-week2-homework --recursive --human-readable --summarize)
 
