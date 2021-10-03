@@ -1,4 +1,6 @@
 import { useState } from "react";
+// import useNotifications from "./useNotification";
+
 
 const productsData = [
   {
@@ -37,17 +39,30 @@ let initialProducts = productsData.map((item) => {
 function useProducts() {
   const [products] = useState(initialProducts);
   const [cart, setCart] = useState([]);
+  // const { notifications, createNotification } = useNotifications();
 
+  
   const addProduct = (product) => {
     let newCart = cart.concat(product);
     setCart(newCart);
+    // createNotification("product added")
   };
 
   const removeProduct = (product) => {
     setCart(cart.filter((item) => item.id != product.id));
+    // createNotification("product removed")
   };
+  const calculateSum =()=>{   
+    const priceOfProducts= cart.reduce((intialValue, product)=>{
+      
+    console.log( cart, product.price)
+    return intialValue+ Number(product.price);
+    },0)
+    return priceOfProducts;
+    
+  }
 
-  return { products, cart, addProduct, removeProduct };
+  return { products, cart, addProduct, removeProduct, total:calculateSum()};
 }
 
 export default useProducts;
